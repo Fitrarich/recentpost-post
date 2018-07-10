@@ -1,5 +1,4 @@
 <script type='text/javascript'>
-//<![CDATA[
 function showrecentpostswiththumbs(json){document.write('<ul class="recent_posts_with_thumbs">');for(var i=0;i<numposts;i++){var entry=json.feed.entry[i];var posttitle=entry.title.$t;var posturl;if(i==json.feed.entry.length)break;for(var k=0;k<entry.link.length;k++){if(entry.link[k].rel=='replies'&&entry.link[k].type=='text/html'){var commenttext=entry.link[k].title;var commenturl=entry.link[k].href;}
 if(entry.link[k].rel=='alternate'){posturl=entry.link[k].href;break;}}var thumburl;try{thumburl=entry.media$thumbnail.url;}catch(error)
 {s=entry.content.$t;a=s.indexOf("<img");b=s.indexOf("src=\"",a);c=s.indexOf("\"",b+5);d=s.substr(b+5,c-b-5);if((a!=-1)&&(b!=-1)&&(c!=-1)&&(d!="")){thumburl=d;}else thumburl='https://web.archive.org/web/20180304004237/http://2.bp.blogspot.com/-neqQgJ8b1BM/VfLEL788W-I/AAAAAAAAEPE/jIE_HgybfBI/s1600/no_image.gif';}
